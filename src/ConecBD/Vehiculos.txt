@@ -1,0 +1,3 @@
+chevrolet,spark,compacto,2010,2500,1
+chevrolet,onix,transmision manual,2018,4500,0
+ford,ka,compacto,2010,3000,1
