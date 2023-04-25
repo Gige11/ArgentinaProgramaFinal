@@ -1,0 +1,16 @@
+//ejecutar primero
+
+CREATE DATABASE concesionaria1;
+
+// luego
+
+
+CREATE TABLE clientes ( id int NOT NULL AUTO_INCREMENT, nombre varchar(50) NOT NULL, apellido varchar(50) NOT NULL, fecha_nacimiento varchar(50) DEFAULT NULL, dni varchar(8) NOT NULL, telefono varchar(15) DEFAULT NULL, email varchar(50) NOT NULL, PRIMARY KEY (id) ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE vendedores ( id int NOT NULL AUTO_INCREMENT, nombre varchar(50) NOT NULL, apellido varchar(50) NOT NULL, fecha_nacimiento varchar(50) DEFAULT NULL, dni varchar(8) NOT NULL, PRIMARY KEY (id), UNIQUE KEY dni (dni) ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE vehiculos ( id int NOT NULL AUTO_INCREMENT, marca varchar(50) NOT NULL, modelo varchar(50) NOT NULL, descripcion text NOT NULL, anio varchar(15) DEFAULT NULL, precio decimal(18,2) NOT NULL, disponible tinyint DEFAULT NULL, PRIMARY KEY (id) ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE ventas ( id int NOT NULL AUTO_INCREMENT, idCliente int NOT NULL, idVehiculo int NOT NULL, idVendedor int NOT NULL, PRIMARY KEY (id), KEY idCliente (idCliente), KEY idVehiculo (idVehiculo), KEY idVendedor (idVendedor), CONSTRAINT ventas_ibfk_1 FOREIGN KEY (idCliente) REFERENCES clientes (id), CONSTRAINT ventas_ibfk_2 FOREIGN KEY (idVehiculo) REFERENCES vehiculos (id), CONSTRAINT ventas_ibfk_3 FOREIGN KEY (idVendedor) REFERENCES vendedores (id) ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE compras ( id int NOT NULL AUTO_INCREMENT, idCliente int NOT NULL, idVehiculo int NOT NULL, PRIMARY KEY (id), KEY idCliente (idCliente), KEY idVehiculo (idVehiculo), CONSTRAINT compras_ibfk_1 FOREIGN KEY (idCliente) REFERENCES clientes (id), CONSTRAINT compras_ibfk_2 FOREIGN KEY (idVehiculo) REFERENCES vehiculos (id) ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci; ;

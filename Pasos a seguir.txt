@@ -1,0 +1,8 @@
+1- Crear la base de datos con el codigo dado en el archivo "Crear base de datos".
+
+2- Modificar en la clase BDconexion el URL con los datos correspondientes.
+
+3- El formato a seguir para cargar los vehiculos en la BD por primera vez con el archivo Vehiculos.txt es el siguiente: marca,modelo,descripcion,año,disponible(1 si esta disponible, 0 si no lo esta).
+
+
+
